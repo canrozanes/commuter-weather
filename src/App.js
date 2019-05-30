@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Header from './Header.js';
 import Footer from './Footer.js'
-import TimePicker from 'react-time-picker';
 
 
 import './App.css';
@@ -19,9 +18,9 @@ class App extends Component {
 			hourly: {},
 		}
 	}
-	onChange1 = (time) => {
+	handleChange1 = (time) => {
 		this.setState({ time1: time })}
-	onChange2 = (time) => {
+	handleChange2 = (time) => {
 		this.setState({ time2: time })
 	}
 
@@ -72,26 +71,8 @@ class App extends Component {
 	render(){
 		return (
 			<div className="App" >
-				<Header/>
-				<form action="">
-					<label htmlFor="time1">Commute From Home Start</label>
-					<TimePicker
-						onChange={this.onChange1}
-						value={this.state.time1}
-						format= "HH:a"
-						name="time1"
-						disableClock= "true"
-					/>
-					<label htmlFor="time2">Commute From Home Start</label>
-					<TimePicker
-						onChange={this.onChange2}
-						value={this.state.time2}
-						format="HH:a"
-						name="time2"
-						disableClock="true"
-					/>
-					<button>Get Weather Data</button>
-				</form>
+				<Header time={this.state} handleChange1={this.handleChange1} handleChange2={this.handleChange2}  />
+
 
 				
 				<Footer />
