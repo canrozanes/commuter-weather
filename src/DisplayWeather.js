@@ -1,49 +1,6 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
-class DisplayWeather extends Component{
-    constructor(){
-        super();
-    }
-
-    displayIcon = (icon) => {
-        let iconToDisplay;
-        console.log("hi")
-        switch (icon){
-            case "clear-day":
-                iconToDisplay = <FontAwesomeIcon icon={faSun} />
-                return iconToDisplay;
-            case "clear-night":
-                iconToDisplay = <FontAwesomeIcon icon={faMoon} />
-                return iconToDisplay;
-            case "rain":
-                iconToDisplay = <FontAwesomeIcon icon={faSun} />
-                return iconToDisplay;
-            case "snow":
-                iconToDisplay = <FontAwesomeIcon icon={faSun} />
-                return iconToDisplay;
-            case "sleet":
-                iconToDisplay = <FontAwesomeIcon icon={faSun} />
-                return iconToDisplay;
-            case "wind":
-                iconToDisplay = <FontAwesomeIcon icon={faSun} />
-                return iconToDisplay;
-            case "fog":
-                iconToDisplay = <FontAwesomeIcon icon={faSun} />
-                return iconToDisplay;
-            case "cloudy":
-                iconToDisplay = <FontAwesomeIcon icon={faSun} />
-                return iconToDisplay;
-            case "partly-cloudy-day":
-                iconToDisplay = <FontAwesomeIcon icon={faSun} />
-                return iconToDisplay;
-            case  "partly-cloudy-night":
-                iconToDisplay = <FontAwesomeIcon icon={faSun} />
-                return iconToDisplay;
-            
-        } 
-    }
+class DisplayWeather extends Component {
 
     render(){
         return(
@@ -51,7 +8,7 @@ class DisplayWeather extends Component{
                 <div className="weather1">
                     <div className="icon">
                         <h3>Icon:</h3>
-                        <p>{()=>{this.iconToDisplay(this.props.icon)}}</p>
+                        <img src={`./assets/weatherIcons/${this.props.icon}.svg`} alt=""/>
                     </div>
                     <div className="summary">
                         <h3>Summary:</h3>

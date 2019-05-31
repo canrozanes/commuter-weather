@@ -11,20 +11,10 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			time1: new Date('2019','04','30'),
-			time2: new Date('2019','04','30'),
-			humidity1: 0,
-			icon1: "",
-			precipIntensity1: 0,
-			precipProbability1: 0,
-			summary1: "",
-			temperature1: 0,
-			humidity2: 0,
-			icon2: "",
-			precipIntensity2: 0,
-			precipProbability2: 0,
-			summary2: "",
-			temperature2: 0,
+			time1: new Date(),
+			time2: new Date(),
+			parsedweatherData1: {},
+			parsedweatherData2: {}
 		}
 	}
 	handleChange1 = (time) => {
@@ -36,8 +26,8 @@ class App extends Component {
 	}
 	kickOff = (e) => {
 		e.preventDefault();
-		this.formatDate(this.state.time1, "firstWeather");
-		this.formatDate(this.state.time2, "secondWeather");
+		this.formatDate(this.state.time1, "weatherData1");
+		this.formatDate(this.state.time2, "weatherData2");
 	}
 
 	formatDate = (dateObject, weatherName) => {
@@ -69,30 +59,32 @@ class App extends Component {
 			url: `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c369d6cf3852faec4a3db6128422f86a/43.6532,-79.3832,${date}?units=si`,
 
 		}).then((response) => {
-			console.log(response);
+			// console.log(response);
 			this.setState({
 				[weatherName]: response.data.currently,
 			})
-			this.assignStates()
+			this.assignStates(weatherName)
 		})
 	}
 	// we do the filtering of the data and set state to contain a 
 	// {weateherIcon1: }
-	assignStates = () => {
+	assignStates = (weatherName) => {
+		const objectName = `parsed` + weatherName;
+		const newData = {
+			humidity: 			this.state[weatherName].humidity,
+			icon: 				this.state[weatherName].icon,
+			precipIntensity: 	this.state[weatherName].precipIntensity,
+			precipProbability: 	this.state[weatherName].precipProbability,
+			summary: 			this.state[weatherName].summary,
+			temperature: 		this.state[weatherName].temperature,
+		};
+		console.log(newData);
 		this.setState({
-			humidity1: 			this.state.firstWeather.humidity,
-			icon1:  			this.state.firstWeather.icon,
-			precipIntensity1: 	this.state.firstWeather.precipIntensity,
-			precipProbability1: this.state.firstWeather.precipProbability,
-			summary1: 			this.state.firstWeather.summary,
-			temperature1: 		this.state.firstWeather.temperature,
-			humidity2: 			this.state.secondWeather.humidity,
-			icon2:  			this.state.secondWeather.icon,
-			precipIntensity2: 	this.state.secondWeather.precipIntensity,
-			precipProbability2: this.state.secondWeather.precipProbability,
-			summary2: 			this.state.secondWeather.summary,
-			temperature2: 		this.state.secondWeather.temperature,
+			[objectName] : newData,
 		})
+	}
+	componentDidMount(){
+		// this.assignStates();
 	}
 
 	render() {
@@ -105,24 +97,24 @@ class App extends Component {
 					handleChange2={this.handleChange2}
 					kickOff={this.kickOff} 
 				/>
-				{this.state.icon1 && 
+				{this.state.weatherData1 && 
 					<DisplayWeather
-						humidity={this.state.humidity1}
-						icon={this.state.icon1}
-						precipIntensity={this.state.precipIntensity1}
-						precipProbability={this.state.precipProbability1}
-						summary={this.state.summary1}
-						temperature={this.state.temperature1}
+						humidity={this.state.parsedweatherData1.humidity}
+						icon={this.state.parsedweatherData1.icon}
+						precipIntensity={this.state.parsedweatherData1.precipIntensity}
+						precipProbability={this.state.parsedweatherData1.precipProbability}
+						summary={this.state.parsedweatherData1.summary}
+						temperature={this.state.parsedweatherData1.temperature}
 					/>
 				}
-				{this.state.icon2 && 
+				{this.state.weatherData2 && 
 					<DisplayWeather
-						humidity={this.state.humidity2}
-						icon={this.state.icon2}
-						precipIntensity={this.state.precipIntensity2}
-						precipProbability={this.state.precipProbability2}
-						summary={this.state.summary2}
-						temperature={this.state.temperature2}
+						humidity={this.state.parsedweatherData2.humidity}
+						icon={this.state.parsedweatherData2.icon}
+						precipIntensity={this.state.parsedweatherData2.precipIntensity}
+						precipProbability={this.state.parsedweatherData2.precipProbability}
+						summary={this.state.parsedweatherData2.summary}
+						temperature={this.state.parsedweatherData2.temperature}
 					/>
 				}
 				<button onClick={()=>{window.location.reload()}}>Refresh</button>
