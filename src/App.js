@@ -83,9 +83,6 @@ class App extends Component {
 			[objectName] : newData,
 		})
 	}
-	componentDidMount(){
-		// this.assignStates();
-	}
 
 	render() {
 		return (
@@ -117,7 +114,8 @@ class App extends Component {
 						temperature={this.state.parsedweatherData2.temperature}
 					/>
 				}
-				<button onClick={()=>{window.location.reload()}}>Refresh</button>
+				<button onClick={()=>{window.location.reload()}}
+				className="greenButton">Refresh</button>
 				<Footer />
 			</div>
 		);
