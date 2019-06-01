@@ -9,24 +9,24 @@ class Header extends Component{
             <div className="header">
                 <div className="wrapper formBox">
                     <h1>Commuter.Weather</h1>
-                    <p>Tell us when your commute is, we'll tell you how the weather will be!</p>
+                    <p>Tell us when your commute is, we'll tell you how the weather will be then</p>
                     <form action="">
                         <div>
-                            <label htmlFor="time1">Commute to Work Start Time</label>
+                            <label htmlFor="time1">Commute to Work Start Time:</label>
                             <DateTimePicker
                                 className="datePicker"
                                 onChange={this.props.handleChange1}
                                 value={this.props.time1}
-                                format="y-MM-dd h:mm a"
+                                format="y-MM-dd HH:mm"
                             />
                         </div>
                         <div>
-                            <label htmlFor="time2">Commute to Home Start Time</label>
+                            <label htmlFor="time2">Commute to Home Start Time:</label>
                             <DateTimePicker
                                 className="datePicker"
                                 onChange={this.props.handleChange2}
                                 value={this.props.time2}
-                                format="y-MM-dd h:mm a"
+                                format="y-MM-dd HH:mm"
                             />
                         </div>
                         <button onClick={this.props.kickOff}
