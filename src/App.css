@@ -6,16 +6,13 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 .visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
 
-*{
-  /* border: 1px solid black; */
-}
-
 html{
     font-size: 125%;
+    scroll-behavior: smooth;
 }
 body{
     font-size: 1.6rem;
-    background-color: #fff;
+    background-color: #f4faff;
 }
 .wrapper{
     margin: 0 auto;
@@ -34,7 +31,7 @@ h5{
     font-family: 'PT Sans', sans-serif;
     color: #c97064;
     text-align: center;
-    margin: 0;
+    margin: 0 auto;;
 }
 
 h1{
@@ -44,20 +41,35 @@ h1{
 
 h2{
     font-size: 1.4rem;
-    margin: 5px 0;
+    margin: 25px 0;
+    color:  #262322;
+    font-weight: 400;
 }
 h3{
     font-size: 1.2rem;
     margin: 0;
+    color:  #262322;
 }
-
+h4{
+  font-size: 1rem;
+  margin: 0;
+}
+a{
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.8rem; /* no underline */
+}
 p{
   font-size: 1rem;
+  color:  #262322;
+}
+.bold{
+  font-weight: 700;
 }
 .header{
-  height: 90vh;
+  height: 95vh;
   background-image: url("./bicycleBackground.png") ;
-  background:linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.6)),url("./bicycleBackground.png");
+  background:linear-gradient(0deg,rgba(0,0,0,0.1),rgba(0,0,0,0.3)),url("./bicycleBackground.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right bottom;
@@ -66,21 +78,19 @@ p{
 }
 
 .formBox{
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start; */
   background: white;
   width: 400px;
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 10%;
   padding: 25px;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
-  -moz-box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
-  box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,1);
 }
+.formBox p{
+  font-style: italic;
+}
+
 form{
   display: flex;
   flex-direction: column;
@@ -88,6 +98,11 @@ form{
   align-items: flex-start;
   font-size: 1rem;
 }
+
+.formInput{
+  margin: 20px 0;
+}
+
 form label{
   font-size: 1.0rem;
 }
@@ -101,7 +116,7 @@ form label{
 }
 .react-datetime-picker__wrapper{
   border: none;
-  border-bottom: 1px solid #7d7c82;
+  border-bottom: 1px solid  #262322;
   width: 100%;
 }
 
@@ -114,44 +129,81 @@ form label{
   border-radius: 10px;
   border: none;
   align-self: center;
-  margin: 20px;
+  margin: 20px auto;
+  text-align: center;
 }
 
+main{
+  padding: 100px 0;
+}
+
+.buttonContainer{
+  text-align: center;
+}
+.buttonContainer button{
+  margin-bottom: 0;
+  margin-top: 50px;
+}
 
 .weatherResults{
   display: flex;
-  width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
 }
-.summary h3{
-  text-align: center;
-  width: 100%;
+.weatherResult{
+  width: 45%;
 }
 
-.icon.stats{
-  width: 50%;
-  margin: 0 auto;
-  border: none;
-  border-radius: 50%;
-  /* box-sizing: content-box; */
-  border: 2px solid #7d7c82;;
-}
-
-
-.weather{
-  width: 40%;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
-  /* text-align: left; */
-}
-.weather p{
-  margin: 0;
-  align-self: center;
-}
-.stats{
+.weatherData{
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  border-bottom: 2px solid #7d7c82;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,1);
+  border-radius: 10px;
+  padding: 20px;
+  
+}
+
+.importantData{
+  width: 30%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.extraData{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 10px;
+
+}
+
+.numberItem{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid  #262322
+}
+.numberItem p{
+  margin: 0;
+
+}
+
+.importantData h3{
+  margin: 0 auto;
+}
+
+.message{
+  text-align: center;
+  margin-top: 50px;
+}
+
+footer{
+  background: #262322;
+  text-align: center;
+  color: #f4faff;
+  height: 5vh;
+}
+footer p{
+  color: #f4faff;
+  padding-top: 10px;
+  margin: 0;
 }
