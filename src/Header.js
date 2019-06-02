@@ -27,8 +27,8 @@ class Header extends Component{
         return (
             <div className="header">
                 <div className="wrapper formBox">
-                    <h1>Commuter Weather App</h1>
-                    <p>Tell us when your commute is, we'll tell you how the weather will be</p>
+                    <h1>Toronto Commuter</h1>
+                    <p>Tell us when your commute is, we'll tell you how the weather will be.</p>
                     <form action="">
                         <div className="formInput">
                             <label className="bold" htmlFor="time1">Commute to Work Start Time:</label>

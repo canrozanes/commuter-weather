@@ -72,7 +72,7 @@ class App extends Component {
 		if (minutes < 10) {
 			minutes = '0' + minutes;
 		}
-		return new Date(`${year}-${month}-${day}T00:00:00`);
+		return new Date(`${year}-${month}-${day}T${hours}:00:00`);
 	}
 
 	getWeatherData = (date, weatherName) => {
