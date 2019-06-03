@@ -244,9 +244,6 @@ footer p{
   .weatherResult{
     width: 100%;
   }
-  footer{
-    height: 8vh;
-  }
 }
 @media (max-width: 750px){
   .header{
