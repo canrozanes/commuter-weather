@@ -244,6 +244,20 @@ footer p{
   .weatherResult{
     width: 100%;
   }
+  footer{
+    height: 8vh;
+  }
+}
+@media (max-width: 750px){
+  .header{
+    height: 92vh;
+  }
+  footer{
+    height: 8vh;
+  }
+  footer p{
+    padding: 0;
+  }
 }
 @media (max-width: 700px){
   footer a{
@@ -271,9 +285,8 @@ footer p{
   }
   .formBox{
     position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    top: auto;
+    left: auto;
   }
   .header{
     display: flex;
