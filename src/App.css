@@ -256,7 +256,7 @@ footer p{
   }
   
   footer{
-    height: 10vh;
+    height: auto;;
   }
   footer > div{
     display: flex;
@@ -274,7 +274,6 @@ footer p{
     height: 100vh;
   }
   footer{
-    height: auto;
     padding: 10px 0;
   }
 }
