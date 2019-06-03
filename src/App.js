@@ -10,6 +10,7 @@ import './App.css';
 class App extends Component {
 	constructor() {
 		super();
+		//create a reference to the weatherData component for automatic scrolling
 		this.refToWeather = React.createRef();
 		this.state = {
 			time1: this.todaysDate(),
@@ -19,40 +20,7 @@ class App extends Component {
 			refToWeather: ""
 		}
 	}
-	handleChange1 = (time) => {
-		this.setState({ time1: time })
-	}
-
-	handleChange2 = (time) => {
-		this.setState({ time2: time })
-	}
-	kickOff = (e) => {
-		e.preventDefault();
-		this.formatDate(this.state.time1, "weatherData1");
-		this.formatDate(this.state.time2, "weatherData2");
-	}
-
-	formatDate = (dateObject, weatherName) => {
-		let year = dateObject.getFullYear();
-		let month = dateObject.getMonth() + 1;
-		if (month < 10) {
-			month = '0' + month;
-		}
-		let day = dateObject.getDate();
-		if (day < 10) {
-			day = '0' + day;
-		}
-		let hours = dateObject.getHours();
-		if (hours < 10) {
-			hours = '0' + hours;
-		}
-		let minutes = dateObject.getMinutes();
-		if (minutes < 10) {
-			minutes = '0' + minutes;
-		}
-		let dateString = `${year}-${month}-${day}T${hours}:${minutes}:00`;
-		this.getWeatherData(dateString, weatherName);
-	}
+	//take todays date reformated it and create a new date object to set the initial state of time1 and time2 states to be nice round datetimes. 
 	todaysDate = () => {
 		let dateObject = new Date();
 		let year = dateObject.getFullYear();
@@ -74,7 +42,45 @@ class App extends Component {
 		}
 		return new Date(`${year}-${month}-${day}T${hours}:00:00`);
 	}
-
+	//handle change for the first dateTime picker
+	handleChange1 = (time) => {
+		this.setState({ time1: time })
+	}
+	//handle change for the second dateTime picker
+	handleChange2 = (time) => {
+		this.setState({ time2: time })
+	}
+	//when user presses the "Display Weather" button, call the formatDate function with "weatherData1" and "weatherData2" strings.
+	kickOff = (e) => {
+		//prevent default behaviour of the button
+		e.preventDefault();
+		//call format date for two different dates. Also pass in strings that will eventually be the name of the objects that will store the results of the each API call.
+		this.formatDate(this.state.time1, "weatherData1");
+		this.formatDate(this.state.time2, "weatherData2");
+	}
+	//format the date from a date object to a string format that is accepted by the API. Once the date format conversion happens, make the API call,
+	formatDate = (dateObject, weatherName) => {
+		let year = dateObject.getFullYear();
+		let month = dateObject.getMonth() + 1;
+		if (month < 10) {
+			month = '0' + month;
+		}
+		let day = dateObject.getDate();
+		if (day < 10) {
+			day = '0' + day;
+		}
+		let hours = dateObject.getHours();
+		if (hours < 10) {
+			hours = '0' + hours;
+		}
+		let minutes = dateObject.getMinutes();
+		if (minutes < 10) {
+			minutes = '0' + minutes;
+		}
+		let dateString = `${year}-${month}-${day}T${hours}:${minutes}:00`;
+		this.getWeatherData(dateString, weatherName);
+	}
+	//make the API Call and pass in the date string first mentioned in the kickoff function.
 	getWeatherData = (date, weatherName) => {
 		axios({
 			url: `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c369d6cf3852faec4a3db6128422f86a/43.6532,-79.3832,${date}?units=si`,

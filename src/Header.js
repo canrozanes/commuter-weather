@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import DateTimePicker from 'react-datetime-picker';
 
-class Header extends Component{
+class Header extends Component {
+
+    //add or subtract days from today to use on maxDate and minDate props of DateTimePicker component.
     todayOffset = (offset) => {
+        //create a new weather object with todays date
         let dateObject = new Date();
         let year = dateObject.getFullYear();
         let month = dateObject.getMonth() + 1;
         if (month < 10) {
             month = '0' + month;
         }
-        let day = dateObject.getDate()+offset;
+        //let the output day be today's date + offset 
+        let day = dateObject.getDate() + offset;
         if (day < 10) {
             day = '0' + day;
         }
@@ -23,7 +27,7 @@ class Header extends Component{
         }
         return new Date(`${year}-${month}-${day}T00:00:00`);
     }
-    render(){
+    render() {
         return (
             <div className="header">
                 <div className="wrapper formBox">
@@ -37,8 +41,10 @@ class Header extends Component{
                                 onChange={this.props.handleChange1}
                                 value={this.props.time1}
                                 format="y-MM-dd HH:mm"
+                                // make sure user can only select yesterday to a week out
                                 maxDate={this.todayOffset(7)}
                                 minDate={this.todayOffset(-1)}
+                                required={true}
                             />
                         </div>
                         <div className="formInput">
@@ -48,17 +54,20 @@ class Header extends Component{
                                 onChange={this.props.handleChange2}
                                 value={this.props.time2}
                                 format="y-MM-dd HH:mm"
+                                // make sure user can only select yesterday to a week out
                                 maxDate={this.todayOffset(7)}
                                 minDate={this.todayOffset(-1)}
+                                required={true}
                             />
                         </div>
-                        <button onClick={this.props.kickOff}
+                        {/* error handling: check if the user has values for both dates */}
+                        <button onClick={(this.props.time1 && this.props.time1) ? this.props.kickOff : ""}
                             className="greenButton"
                         >Display Weather
                         </button>
                     </form>
                 </div>
-            </div>
+            </div >
         )
     }
 }
