@@ -204,20 +204,17 @@ footer{
   text-align: center;
   color: #f4faff;
   height: 5vh;
-  min-height: 30px;
+  min-height: 40px;
   padding: 5px 0;
 }
 footer > div{
   display: flex;
   justify-content: space-around;
-  align-items: baseline;
+  align-items: center;
   height: 100%;
 }
 footer p{
   color: #f4faff;
-  margin-top: 15px;
-  /* display: inline-block; */
-  
 }
 
 *:focus{
