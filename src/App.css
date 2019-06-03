@@ -204,14 +204,20 @@ footer{
   text-align: center;
   color: #f4faff;
   height: 5vh;
+  min-height: 30px;
+  padding: 5px 0;
+}
+footer > div{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: baseline;
+  height: 100%;
 }
 footer p{
   color: #f4faff;
-  margin: 0;
-  display: inline-block;
+  margin-top: 15px;
+  /* display: inline-block; */
+  
 }
 
 *:focus{
@@ -249,30 +255,31 @@ footer p{
 }
 @media (max-width: 750px){
   .header{
-    height: 92vh;
+    height: 90vh;
   }
+  
   footer{
-    height: 8vh;
+    height: 10vh;
+  }
+  footer > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
   }
   footer p{
     padding: 0;
+    margin: 5px;
   }
 }
 @media (max-width: 700px){
-  footer a{
-    display: block;
-    padding: 10px 0;
-  }
-  .hideOnMobile{
-    display: none;
-  }
   .header{
     height: 100vh;
   }
   footer{
     height: auto;
+    padding: 10px 0;
   }
-  
 }
 
 @media (max-width: 550px){

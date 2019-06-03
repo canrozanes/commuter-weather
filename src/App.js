@@ -58,7 +58,7 @@ class App extends Component {
 		this.formatDate(this.state.time1, "weatherData1");
 		this.formatDate(this.state.time2, "weatherData2");
 	}
-	//format the date from a date object to a string format that is accepted by the API. Once the date format conversion happens, make the API call,
+	//format the date from a date object to a string format that is accepted by the API. Once the date format conversion happens, make the API call.
 	formatDate = (dateObject, weatherName) => {
 		let year = dateObject.getFullYear();
 		let month = dateObject.getMonth() + 1;
@@ -77,19 +77,22 @@ class App extends Component {
 		if (minutes < 10) {
 			minutes = '0' + minutes;
 		}
+		//convert the date to format /YYYY-MM-DDTHH:mm:00
 		let dateString = `${year}-${month}-${day}T${hours}:${minutes}:00`;
+		//go to the function that makes the API Call
 		this.getWeatherData(dateString, weatherName);
 	}
-	//make the API Call and pass in the date string first mentioned in the kickoff function.
+	//make the API Call and pass in the date string {weatherName} first mentioned in the kickoff function.
 	getWeatherData = (date, weatherName) => {
 		axios({
 			url: `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c369d6cf3852faec4a3db6128422f86a/43.6532,-79.3832,${date}?units=si`,
 
 		}).then((response) => {
-			console.log(response.data);
+			//set state with the result from the API Response
 			this.setState({
 				[weatherName]: response.data.currently,
 			})
+			//call the assignStates function to make state assignments.
 			this.assignStates(weatherName);
 			if (this.refToWeather.current){
 				window.scrollTo(0, this.refToWeather.current.offsetTop);
@@ -97,11 +100,11 @@ class App extends Component {
 		})
 	}
 
-	// we do the filtering of the data and set state to contain a 
-	// {weateherIcon1: }
+	//this function takes the properties inside the object created by the API call and assigns them to another object called parsed+weatherName"\
 	assignStates = (weatherName) => {
+		//create an object called parsed + weathername to store the parsed data.
 		const objectName = `parsed` + weatherName;
-		// let d = new Date(0)
+		//create an object called new Data with properties assigned to the states.	
 		const newData = {
 			humidity: 			this.state[weatherName].humidity,
 			icon: 				this.state[weatherName].icon,
@@ -113,16 +116,19 @@ class App extends Component {
 			windSpeed: 			this.state[weatherName].windSpeed,
 			serverTime: 		this.readableDate(this.state[weatherName].time),
 		};
+		//assign the newData as an object to [objectName] 
 		this.setState({
 			[objectName] : newData,
 		})
 	}
+	//if the status shown is "rain" but the precipitation intensity is less than 0.4 mm/hr tell the user that is very little rain
 	displayRainMessage = () => {
 		if ((this.state.weatherData1.icon === "rain" || this.state.weatherData1.icon==="rain")&&(this.state.weatherData1.precipIntensity !== 0 && this.state.weatherData1.precipIntensity <= 0.4) &&
 		(this.state.weatherData2.precipIntensity !== 0 && this.state.weatherData2.precipIntensity < 0.4)){
 			return <p className="wrapper message">{`${Math.round(Math.max(this.state.weatherData1.precipIntensity, this.state.weatherData2.precipIntensity)*100)/100} mm/hr is really not a lot of rain you can still bike!`}</p>
 		}
 	}
+	//convert unix time that comes back from the server to human readable time. 
 	readableDate = (unixTime) => {
 		let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		let date = new Date(unixTime * 1000);
@@ -165,6 +171,7 @@ class App extends Component {
 					handleChange2={this.handleChange2}
 					kickOff={this.kickOff} 
 				/>
+				{/* if weatherData1 and weatherData2 are defined, render main, else render nothing */}
 				{this.state.weatherData1 && this.state.weatherData2 ? 
 				<main ref={this.refToWeather}>
 					<div className="weatherResults wrapper">
