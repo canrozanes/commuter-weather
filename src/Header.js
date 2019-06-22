@@ -31,9 +31,20 @@ class Header extends Component {
         return (
             <div className="header">
                 <div className="wrapper formBox">
-                    <h1>Toronto Commuter</h1>
+                    <h1>Commuter.Weather</h1>
                     <p>Tell us when your commute is, we'll tell you how the weather will be.</p>
                     <form action="">
+                        <div className="formInput">
+                            <label className="bold" htmlFor="location">City:</label>
+                            <input 
+                            className = "textInput"
+                            type="text" 
+                            id="location"
+                            placeholder={"enter city name"}
+                            value={this.props.locationName}
+                            onChange={this.props.handleLocation}
+                            />
+                        </div>
                         <div className="formInput">
                             <label className="bold" htmlFor="time1">Commute to Work Start Time:</label>
                             <DateTimePicker
