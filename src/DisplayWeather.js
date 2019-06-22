@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
 
-class DisplayWeather extends Component {  
+class DisplayWeather extends Component {
+    getTimefromDate = (dateTime) => {
+        let hours = dateTime.getHours();
+        if (hours < 10) {
+            hours = '0' + hours;
+        }
+        let minutes = dateTime.getMinutes();
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+        let timeString = `${hours}:${minutes}`;
+        return timeString
+    }
+    
+
     render(){
         return(
             <div className="weatherResult">
-                <h2>Weather forecast for <span className="bold">{this.props.time}</span></h2>
+                <h2>Weather forecast for <span className="bold">{this.getTimefromDate(this.props.time)}</span></h2>
                 <div className="weatherData">
                     <div className="importantData">
                         <div className="iconContainer">

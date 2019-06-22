@@ -15,8 +15,14 @@ class App extends Component {
 		this.state = {
 			time1: this.todaysDate(),
 			time2: this.todaysDate(),
+			formattedTime1: "",
+			formattedTime2: "",
 			parsedweatherData1: {},
 			parsedweatherData2: {},
+			locationName: "",
+			counter: 0,
+			latt: "",
+			long: "",
 			refToWeather: ""
 		}
 	}
@@ -50,16 +56,25 @@ class App extends Component {
 	handleChange2 = (time) => {
 		this.setState({ time2: time })
 	}
+	handleLocation = (event) =>{
+		this.setState({
+			locationName: event.target.value,
+		})
+		
+	}
 	//when user presses the "Display Weather" button, call the formatDate function with "weatherData1" and "weatherData2" strings.
 	kickOff = (e) => {
 		//prevent default behaviour of the button
 		e.preventDefault();
 		//call format date for two different dates. Also pass in strings that will eventually be the name of the objects that will store the results of the each API call.
-		this.formatDate(this.state.time1, "weatherData1");
-		this.formatDate(this.state.time2, "weatherData2");
+		this.setState({
+			formattedTime1 : this.formatDate(this.state.time1),
+			formattedTime2 : this.formatDate(this.state.time2),
+		})
+		this.getCityCoordinate(this.state.locationName);
 	}
 	//format the date from a date object to a string format that is accepted by the API. Once the date format conversion happens, make the API call.
-	formatDate = (dateObject, weatherName) => {
+	formatDate = (dateObject) => {
 		let year = dateObject.getFullYear();
 		let month = dateObject.getMonth() + 1;
 		if (month < 10) {
@@ -80,15 +95,17 @@ class App extends Component {
 		//convert the date to format /YYYY-MM-DDTHH:mm:00
 		let dateString = `${year}-${month}-${day}T${hours}:${minutes}:00`;
 		//go to the function that makes the API Call
-		this.getWeatherData(dateString, weatherName);
+		return dateString
 	}
 	//make the API Call and pass in the date string {weatherName} first mentioned in the kickoff function.
 	getWeatherData = (date, weatherName) => {
+		console.log(date);
 		axios({
-			url: `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c369d6cf3852faec4a3db6128422f86a/43.6532,-79.3832,${date}?units=si`,
+			url: `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c369d6cf3852faec4a3db6128422f86a/${this.state.latt},${this.state.long},${date}?units=si`,
 
 		}).then((response) => {
 			//set state with the result from the API Response
+			console.log(response.data)
 			this.setState({
 				[weatherName]: response.data.currently,
 			})
@@ -97,6 +114,43 @@ class App extends Component {
 			if (this.refToWeather.current){
 				window.scrollTo(0, this.refToWeather.current.offsetTop);
 			}
+		})
+	}
+	getCityCoordinate=(address) =>{
+		axios({
+			url:`https://nominatim.openstreetmap.org/search`,
+			method: 'GET',
+			params: {
+				q: address,
+				format:"json",
+				addressdetails: 1,
+				limit: 1,
+			}
+		}).then((response)=>{
+			this.setState({
+				latt: response.data[0].lat,
+				long: response.data[0].lon
+			})
+			this.getWeatherData(this.state.formattedTime1, "weatherData1")
+			this.getWeatherData(this.state.formattedTime2, "weatherData2")
+		})
+	}
+	getCityNameFromCoordinates = (latt,long) => {
+		axios({
+			url: `https://nominatim.openstreetmap.org/reverse?`,
+			method: 'GET',
+			params: {
+				lat: latt,
+				lon: long,
+				format: "json",
+				addressdetails: 1,
+				limit: 1,
+			}
+		}).then((response) => {
+			let city=response.data.address.city;
+			this.setState({
+				locationName: city,
+			})
 		})
 	}
 
@@ -161,6 +215,18 @@ class App extends Component {
 		let formattedTime = `${month} ${day}${suffix}, ${hours}:${minutes.substr(-2)}`;
 		return formattedTime;
 	} 
+	getLocationInfo = (position) => {
+		this.setState({
+			long: position.coords.longitude,
+			latt: position.coords.latitude
+		})
+		this.getCityNameFromCoordinates(this.state.latt, this.state.long)
+	}
+	componentDidMount(){
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(this.getLocationInfo);
+		}
+	}
 	render() {
 		return (
 			<div className="App" >
@@ -169,7 +235,11 @@ class App extends Component {
 					time2={this.state.time2}
 					handleChange1={this.handleChange1}
 					handleChange2={this.handleChange2}
+					handleLocation={this.handleLocation}
 					kickOff={this.kickOff} 
+					locationName={this.state.locationName}
+					latt={this.state.latt}
+					long={this.state.long}
 				/>
 				{/* if weatherData1 and weatherData2 are defined, render main, else render nothing */}
 				{this.state.weatherData1 && this.state.weatherData2 ? 
@@ -183,8 +253,8 @@ class App extends Component {
 								summary=			{this.state.parsedweatherData1.summary}
 								temperature=		{this.state.parsedweatherData1.temperature}
 								apparentTemp=		{this.state.parsedweatherData1.apparentTemp}
-								windSpeed=				{this.state.parsedweatherData1.windSpeed}
-								time=				{this.state.parsedweatherData1.serverTime}
+								windSpeed=			{this.state.parsedweatherData1.windSpeed}
+								time=				{this.state.time1}
 							/>
 													
 							<DisplayWeather
@@ -195,8 +265,8 @@ class App extends Component {
 								summary=			{this.state.parsedweatherData2.summary}
 								temperature=		{this.state.parsedweatherData2.temperature}
 								apparentTemp=		{this.state.parsedweatherData2.apparentTemp}
-								windSpeed=				{this.state.parsedweatherData2.windSpeed}
-								time=				{this.state.parsedweatherData2.serverTime}
+								windSpeed=			{this.state.parsedweatherData2.windSpeed}
+								time=				{this.state.time2}
 							/>
 					</div>
 					{this.displayRainMessage()}
