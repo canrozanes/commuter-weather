@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/canRozanesProject5/static/css/main.60fc273d.chunk.css",
+    "main.css": "/canRozanesProject5/static/css/main.a1a5e0f9.chunk.css",
     "main.js": "/canRozanesProject5/static/js/main.6c49db0d.chunk.js",
     "main.js.map": "/canRozanesProject5/static/js/main.6c49db0d.chunk.js.map",
     "runtime~main.js": "/canRozanesProject5/static/js/runtime~main.1ecfe060.js",
@@ -9,10 +9,10 @@
     "static/js/2.9e478574.chunk.js": "/canRozanesProject5/static/js/2.9e478574.chunk.js",
     "static/js/2.9e478574.chunk.js.map": "/canRozanesProject5/static/js/2.9e478574.chunk.js.map",
     "index.html": "/canRozanesProject5/index.html",
-    "precache-manifest.731831df3ba17bf15e218b1e36c0a1cd.js": "/canRozanesProject5/precache-manifest.731831df3ba17bf15e218b1e36c0a1cd.js",
+    "precache-manifest.96070174b17c75550a8398227bb08527.js": "/canRozanesProject5/precache-manifest.96070174b17c75550a8398227bb08527.js",
     "service-worker.js": "/canRozanesProject5/service-worker.js",
     "static/css/2.f68bb24c.chunk.css.map": "/canRozanesProject5/static/css/2.f68bb24c.chunk.css.map",
-    "static/css/main.60fc273d.chunk.css.map": "/canRozanesProject5/static/css/main.60fc273d.chunk.css.map",
+    "static/css/main.a1a5e0f9.chunk.css.map": "/canRozanesProject5/static/css/main.a1a5e0f9.chunk.css.map",
     "static/media/App.css": "/canRozanesProject5/static/media/bicycleBackground.aba40575.png"
   }
 }
