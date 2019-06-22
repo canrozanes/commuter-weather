@@ -1,7 +1,0 @@
-//Ask user when their commutes are (departure and arrival)
-
-//Make an API call to darkSky and return the hourly weather data.
-//Filter through the data and pnly display the weather for times the user was commuting.
-
-
-//Done
