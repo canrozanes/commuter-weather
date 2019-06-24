@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b9f6d8194456246e959acef551ed726a",
+    "revision": "98318f8a4cd15db6436ecb5b485ed78b",
     "url": "/canRozanesProject5/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/canRozanesProject5/static/css/2.f68bb24c.chunk.css"
   },
   {
-    "revision": "fba9ce01eb18e077c66c",
+    "revision": "2368a46c6de39756b482",
     "url": "/canRozanesProject5/static/css/main.a1a5e0f9.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/canRozanesProject5/static/js/2.9e478574.chunk.js"
   },
   {
-    "revision": "fba9ce01eb18e077c66c",
-    "url": "/canRozanesProject5/static/js/main.6c49db0d.chunk.js"
+    "revision": "2368a46c6de39756b482",
+    "url": "/canRozanesProject5/static/js/main.7f260b04.chunk.js"
   },
   {
     "revision": "9294629509ea12d41875",
