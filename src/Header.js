@@ -6,26 +6,9 @@ class Header extends Component {
     //add or subtract days from today to use on maxDate and minDate props of DateTimePicker component.
     todayOffset = (offset) => {
         //create a new weather object with todays date
-        let dateObject = new Date();
-        let year = dateObject.getFullYear();
-        let month = dateObject.getMonth() + 1;
-        if (month < 10) {
-            month = '0' + month;
-        }
-        //let the output day be today's date + offset 
-        let day = dateObject.getDate() + offset;
-        if (day < 10) {
-            day = '0' + day;
-        }
-        let hours = dateObject.getHours();
-        if (hours < 10) {
-            hours = '0' + hours;
-        }
-        let minutes = dateObject.getMinutes();
-        if (minutes < 10) {
-            minutes = '0' + minutes;
-        }
-        return new Date(`${year}-${month}-${day}T00:00:00`);
+        let result = new Date();
+        result.setDate(result.getDate() + offset);
+        return result;
     }
     render() {
         return (
