@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/canRozanesProject5/static/css/main.a1a5e0f9.chunk.css",
-    "main.js": "/canRozanesProject5/static/js/main.7f260b04.chunk.js",
-    "main.js.map": "/canRozanesProject5/static/js/main.7f260b04.chunk.js.map",
-    "runtime~main.js": "/canRozanesProject5/static/js/runtime~main.1ecfe060.js",
-    "runtime~main.js.map": "/canRozanesProject5/static/js/runtime~main.1ecfe060.js.map",
-    "static/css/2.f68bb24c.chunk.css": "/canRozanesProject5/static/css/2.f68bb24c.chunk.css",
-    "static/js/2.9e478574.chunk.js": "/canRozanesProject5/static/js/2.9e478574.chunk.js",
-    "static/js/2.9e478574.chunk.js.map": "/canRozanesProject5/static/js/2.9e478574.chunk.js.map",
-    "index.html": "/canRozanesProject5/index.html",
-    "precache-manifest.81c172ecd18cdc7cdc73846dafe79b68.js": "/canRozanesProject5/precache-manifest.81c172ecd18cdc7cdc73846dafe79b68.js",
-    "service-worker.js": "/canRozanesProject5/service-worker.js",
-    "static/css/2.f68bb24c.chunk.css.map": "/canRozanesProject5/static/css/2.f68bb24c.chunk.css.map",
-    "static/css/main.a1a5e0f9.chunk.css.map": "/canRozanesProject5/static/css/main.a1a5e0f9.chunk.css.map",
-    "static/media/App.css": "/canRozanesProject5/static/media/bicycleBackground.aba40575.png"
+    "main.css": "/commuter-weather/static/css/main.e3e890f5.chunk.css",
+    "main.js": "/commuter-weather/static/js/main.8d4b2dac.chunk.js",
+    "main.js.map": "/commuter-weather/static/js/main.8d4b2dac.chunk.js.map",
+    "runtime~main.js": "/commuter-weather/static/js/runtime~main.ccd498f5.js",
+    "runtime~main.js.map": "/commuter-weather/static/js/runtime~main.ccd498f5.js.map",
+    "static/css/2.f68bb24c.chunk.css": "/commuter-weather/static/css/2.f68bb24c.chunk.css",
+    "static/js/2.9e478574.chunk.js": "/commuter-weather/static/js/2.9e478574.chunk.js",
+    "static/js/2.9e478574.chunk.js.map": "/commuter-weather/static/js/2.9e478574.chunk.js.map",
+    "index.html": "/commuter-weather/index.html",
+    "precache-manifest.c1aa636855177c881df7ba3af885ad6f.js": "/commuter-weather/precache-manifest.c1aa636855177c881df7ba3af885ad6f.js",
+    "service-worker.js": "/commuter-weather/service-worker.js",
+    "static/css/2.f68bb24c.chunk.css.map": "/commuter-weather/static/css/2.f68bb24c.chunk.css.map",
+    "static/css/main.e3e890f5.chunk.css.map": "/commuter-weather/static/css/main.e3e890f5.chunk.css.map",
+    "static/media/App.css": "/commuter-weather/static/media/bicycleBackground.aba40575.png"
   }
 }
