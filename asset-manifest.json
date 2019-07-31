@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/commuter-weather/static/css/main.e3e890f5.chunk.css",
-    "main.js": "/commuter-weather/static/js/main.8d4b2dac.chunk.js",
-    "main.js.map": "/commuter-weather/static/js/main.8d4b2dac.chunk.js.map",
+    "main.css": "/commuter-weather/static/css/main.201c08a9.chunk.css",
+    "main.js": "/commuter-weather/static/js/main.967e947a.chunk.js",
+    "main.js.map": "/commuter-weather/static/js/main.967e947a.chunk.js.map",
     "runtime~main.js": "/commuter-weather/static/js/runtime~main.ccd498f5.js",
     "runtime~main.js.map": "/commuter-weather/static/js/runtime~main.ccd498f5.js.map",
-    "static/css/2.f68bb24c.chunk.css": "/commuter-weather/static/css/2.f68bb24c.chunk.css",
-    "static/js/2.9e478574.chunk.js": "/commuter-weather/static/js/2.9e478574.chunk.js",
-    "static/js/2.9e478574.chunk.js.map": "/commuter-weather/static/js/2.9e478574.chunk.js.map",
+    "static/css/2.ef8e8b31.chunk.css": "/commuter-weather/static/css/2.ef8e8b31.chunk.css",
+    "static/js/2.43528fa4.chunk.js": "/commuter-weather/static/js/2.43528fa4.chunk.js",
+    "static/js/2.43528fa4.chunk.js.map": "/commuter-weather/static/js/2.43528fa4.chunk.js.map",
     "index.html": "/commuter-weather/index.html",
-    "precache-manifest.c1aa636855177c881df7ba3af885ad6f.js": "/commuter-weather/precache-manifest.c1aa636855177c881df7ba3af885ad6f.js",
+    "precache-manifest.ea19fa2ec454099277f3cdf9baa91ae3.js": "/commuter-weather/precache-manifest.ea19fa2ec454099277f3cdf9baa91ae3.js",
     "service-worker.js": "/commuter-weather/service-worker.js",
-    "static/css/2.f68bb24c.chunk.css.map": "/commuter-weather/static/css/2.f68bb24c.chunk.css.map",
-    "static/css/main.e3e890f5.chunk.css.map": "/commuter-weather/static/css/main.e3e890f5.chunk.css.map",
+    "static/css/2.ef8e8b31.chunk.css.map": "/commuter-weather/static/css/2.ef8e8b31.chunk.css.map",
+    "static/css/main.201c08a9.chunk.css.map": "/commuter-weather/static/css/main.201c08a9.chunk.css.map",
     "static/media/App.css": "/commuter-weather/static/media/bicycleBackground.aba40575.png"
   }
 }

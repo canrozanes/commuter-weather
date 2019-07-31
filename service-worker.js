@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/commuter-weather/precache-manifest.c1aa636855177c881df7ba3af885ad6f.js"
+  "/commuter-weather/precache-manifest.ea19fa2ec454099277f3cdf9baa91ae3.js"
 );
 
 self.addEventListener('message', (event) => {
