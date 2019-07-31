@@ -1,13 +1,9 @@
 {
   "name": "commiter-weather",
   "version": "0.1.0",
-  "homepage": "https://canrozanes.github.io/canRozanesProject5/",
+  "homepage": "https://canrozanes.github.io/commuter-weather/",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.18",
-    "@fortawesome/free-regular-svg-icons": "^5.8.2",
-    "@fortawesome/free-solid-svg-icons": "^5.8.2",
-    "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
@@ -24,9 +20,6 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [

@@ -23,11 +23,12 @@ class App extends Component {
 			counter: 0,
 			latt: "",
 			long: "",
-			refToWeather: ""
+			refToWeather: "",
+			error: null,
 		}
 	}
 	//take todays date reformated it and create a new date object to set the initial state of time1 and time2 states to be nice round datetimes. 
-	todaysDate = () => {
+	todaysDate = ()       => {
 		let dateObject = new Date();
 		let year = dateObject.getFullYear();
 		let month = dateObject.getMonth() + 1;
@@ -133,6 +134,10 @@ class App extends Component {
 			})
 			this.getWeatherData(this.state.formattedTime1, "weatherData1")
 			this.getWeatherData(this.state.formattedTime2, "weatherData2")
+		}).catch((error)=>{
+			this.setState({
+				error: error.message
+			})
 		})
 	}
 	getCityNameFromCoordinates = (latt,long) => {
@@ -150,6 +155,10 @@ class App extends Component {
 			let city=response.data.address.city;
 			this.setState({
 				locationName: city,
+			})
+		}).catch((error)=>{
+			this.setState({
+				error: error.message
 			})
 		})
 	}
